@@ -79,7 +79,6 @@ int main() {
 			exit(0);
 		}
 		
-		//Does not work properly
 		//Question 3 finished
 		
 	}
