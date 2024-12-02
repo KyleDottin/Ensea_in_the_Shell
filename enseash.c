@@ -32,6 +32,18 @@ int main() {
 		
 		//Question 1 finished
 		
+		//Beginning of Question 3
+		
+		if ((strcmp("exit",buffer)==0) || (strcmp("EOF",buffer)==69)){ //compare the buffer to see if it is equal to exit or ctrl+d
+			const char *answer="See you next time ;)\n";
+			int sizeAnswer=strlen(answer);
+		
+			write(STDOUT_FILENO, answer,sizeAnswer);
+			exit(EXIT_FAILURE);
+		}
+		
+		//Question 3 finished
+		
 		//Beginning of Question 2
 		
 		int argc=0;
@@ -58,6 +70,7 @@ int main() {
 			int status= execvp(buffer,argv);
 			if(status==-1){
 				const char *answer="Error: Command not found \n";
+				printf("%s",buffer);
 				int sizeAnswer=strlen(answer);
 		
 				write(STDOUT_FILENO, answer,sizeAnswer);
@@ -68,18 +81,6 @@ int main() {
 		}
 		
 		//Question 2 finished
-		
-		//Beginning of Question 3
-		
-		if (strcmp("exit",buffer)==0){
-			const char *answer="See you next time ;)\n";
-			int sizeAnswer=strlen(answer);
-		
-			write(STDOUT_FILENO, answer,sizeAnswer);
-			exit(0);
-		}
-		
-		//Question 3 finished
 		
 	}
 }
