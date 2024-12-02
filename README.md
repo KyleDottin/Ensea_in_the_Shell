@@ -26,7 +26,7 @@ This repository contains the code, documentation, and report for the project, co
      
 2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
    
-3. **Command execution **:
+3. **Command execution**:
    - The shell now supports simple command execution without arguments.
    - Implements a REPL loop to:
      - Read the user input.
