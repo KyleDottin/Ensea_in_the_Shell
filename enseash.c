@@ -17,6 +17,8 @@ int main() {
 	write(STDOUT_FILENO, introduction,sizeIntro);
 	
 	while(1){
+		//Beginning of Question 1
+		
 		const char *prompt="Enseash>";
 		int sizePrompt=strlen(prompt);
 		
@@ -29,17 +31,40 @@ int main() {
 		
 		//Question 1 finished
 		
-		if(strcmp("fortune",buffer)==0){
-			const char *answer="Today is what happened to yesterday. \n";
-			int sizeAnswer=strlen(answer);
-			write(STDOUT_FILENO, answer,sizeAnswer);
+		//Beginning of Question 2
+		
+		pid_t process=fork();
+		char* argv[]={};
+		for(int i=0;i<SIZE_OF_BUFFER;i++){
+			if(buffer[i]!=' '){
+				argv[0]=buffer[i];
 		}
-		if(strcmp("date",buffer)==0){
-			time_t t = time(NULL);
-			time(*t);
-			const char *answer=const char (t);
-			int sizeAnswer=strlen(answer);
-			write(STDOUT_FILENO, answer,sizeAnswer);
+		
+		if(process==0){
+			int status= execvp(buffer,argv);
+			if(status==-1){
+				const char *answer="Error: Command not found \n";
+				int sizeAnswer=strlen(answer);
+		
+				write(STDOUT_FILENO, answer,sizeAnswer);
+			}else {
+				wait(&process);
+			}
 		}
+		
+		//Question 2 finished
+		
+		//Beginning of Question 3
+		
+		if (strcmp("exit",buffer)==0){
+			const char *answer="See you next time ;)\n";
+			int sizeAnswer=strlen(answer);
+		
+			write(STDOUT_FILENO, answer,sizeAnswer);
+			exit(0);
+		}
+		
+		//Question 3 finished
+		
 	}
 }
