@@ -52,4 +52,4 @@ Enseash> fortune
 Today is what happened to yesterday.
 
 Enseash> date
-Mom Dec 2 11:09:22 GMT+1 2024
+Mon Dec 2 11:09:22 GMT+1 2024
