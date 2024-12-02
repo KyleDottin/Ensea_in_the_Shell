@@ -30,11 +30,16 @@ This repository contains the code, documentation, and report for the project, co
 2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
    
 3. **Command execution**:
-   - The shell now supports simple command execution without arguments.
+   - The shell supports simple command execution without arguments.
    - Implements a REPL loop to:
      - Read the user input.
      - Execute the command (e.g., `fortune`, `date`).
      - Display the result and return to the prompt.
+    
+4. **Shell output**:
+   - Exit Command: The shell handles the exit command and terminates the program with a friendly farewell message.
+   - Ctrl+D Support: The shell properly exits when the user presses <Ctrl+D>, which sends an EOF (End of File) signal.
+
 ---
 
 ## Code Overview
@@ -45,6 +50,9 @@ The current implementation is located in `enseash.c`.
 - **Command Execution**:
   - Simple commands such as `fortune` and `date` are executed.
   - The shell returns the prompt after execution, following the REPL (Read-Eval-Print-Loop) pattern.
+- **Shell Output**:
+  - Exit Command Handling: The shell checks if the user types exit and displays a message before terminating.
+  - Graceful Exit: The shell also exits gracefully when <Ctrl+D> is pressed, just as with the exit command.
 
 ### Example Commands:
 ```bash
