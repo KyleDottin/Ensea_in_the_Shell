@@ -16,4 +16,16 @@ This repository contains the code, documentation, and report for the project, co
 
 ---
 
+## Features
+### Completed Features:
+1. **Welcome Message**: Displays a friendly introduction to the micro shell:
+2. 2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
+3. **Basic Commands**: Handles simple commands like `fortune` and `date`.
+
+---
+
+## Code Overview
+The current implementation is located in `enseash.c`. It includes:
+- **Introduction and Prompt**: Displays the welcome message and waits for user input.
+- **Command Handling**: Executes specific commands based on user input (`fortune` and `date`).
 
