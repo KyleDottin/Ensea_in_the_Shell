@@ -17,6 +17,7 @@ int main() {
 	write(STDOUT_FILENO, introduction,sizeIntro);
 	
 	while(1){
+			
 		//Beginning of Question 1
 		
 		const char *prompt="Enseash>";
@@ -26,31 +27,47 @@ int main() {
 		
 		//Put in a buffer the input of the user
 		fgets(buffer, SIZE_OF_BUFFER,stdin);
-		//Add a \0 at the end of the buffer to make it know it's the end
+		//Add a \0 at the end of the buffer to told him that it's the end
 		buffer[strlen(buffer)-1]='\0';
 		
 		//Question 1 finished
 		
 		//Beginning of Question 2
 		
-		pid_t process=fork();
-		char* argv[]={};
-		for(int i=0;i<SIZE_OF_BUFFER;i++){
-			if(buffer[i]!=' '){
-				argv[0]=buffer[i];
-		}
+		int argc=0;
+		char* argv[SIZE_OF_BUFFER/2]={};
+		char *token = strtok(buffer, " ");
 		
-		if(process==0){
+		//Configuration of argv
+		while (token != NULL && argc < ((SIZE_OF_BUFFER/2) - 1)) {
+			argv[argc++] = token;
+			token = strtok(NULL, " ");
+		}
+		argv[argc]=NULL;
+		
+		pid_t process=fork();
+		
+		if (process < 0) {
+            perror("Fork failed");
+            continue;
+        }
+		
+		//Execution of the command given by the user
+		
+		if(process==0){ //child process
 			int status= execvp(buffer,argv);
 			if(status==-1){
 				const char *answer="Error: Command not found \n";
 				int sizeAnswer=strlen(answer);
 		
 				write(STDOUT_FILENO, answer,sizeAnswer);
-			}else {
-				wait(&process);
 			}
+
 		}
+		wait(&process);
+		else{ //parent process
+			wait(&process);
+		} // Works but apparently the wait does not work, the parent does not wait for the child to finish
 		
 		//Question 2 finished
 		
@@ -61,9 +78,10 @@ int main() {
 			int sizeAnswer=strlen(answer);
 		
 			write(STDOUT_FILENO, answer,sizeAnswer);
-			exit(0);
+			exit(1);
 		}
 		
+		//Does not work properly
 		//Question 3 finished
 		
 	}
