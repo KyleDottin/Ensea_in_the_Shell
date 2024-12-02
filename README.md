@@ -19,7 +19,7 @@ This repository contains the code, documentation, and report for the project, co
 ## Features
 ### Completed Features:
 1. **Welcome Message**: Displays a friendly introduction to the micro shell:
-2. 2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
+2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
 3. **Basic Commands**: Handles simple commands like `fortune` and `date`.
 
 ---
