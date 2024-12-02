@@ -63,11 +63,9 @@ int main() {
 				write(STDOUT_FILENO, answer,sizeAnswer);
 			}
 
-		}
-		wait(&process);
-		else{ //parent process
+		}else{ //parent process
 			wait(&process);
-		} // Works but apparently the wait does not work, the parent does not wait for the child to finish
+		}
 		
 		//Question 2 finished
 		
@@ -78,7 +76,7 @@ int main() {
 			int sizeAnswer=strlen(answer);
 		
 			write(STDOUT_FILENO, answer,sizeAnswer);
-			exit(1);
+			exit(0);
 		}
 		
 		//Does not work properly
