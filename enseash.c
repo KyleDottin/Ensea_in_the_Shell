@@ -26,7 +26,7 @@ int main() {
 		
 		//Put in a buffer the input of the user
 		fgets(buffer, SIZE_OF_BUFFER,stdin);
-		//Add a \0 at the end of the buffer to told him that it's the end
+		//Add a \0 at the end of the buffer to make it know it's the end
 		buffer[strlen(buffer)-1]='\0';
 		
 		//Question 1 finished
