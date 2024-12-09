@@ -7,7 +7,8 @@
 #include <time.h> 
 
 #define SIZE_OF_BUFFER 4096
-#define DEF "\n"
+#define SPACE "\n"
+#define GOODBYE "See you next time ;)\n"
 
 
 void PrintPrompt(const char *prompt,int size){
@@ -79,6 +80,11 @@ void NewPrompt(int status, int lastStatus, long duration){
 
 }
 
+long Duration(long second, long nanosecond){
+	return second*1000+nanosecond/1000000;
+	
+	}
+
 int main() {
 	const char *introduction= "Hello !\nWelcome to the Ensea micro shell. If you wish to quit type 'exit'\n";
 	int sizeIntro=strlen(introduction);
@@ -100,7 +106,6 @@ int main() {
 		
 		int lastStatus=0; //Initialization for Question 4		
 		//Put in a buffer the input of the user
-		//printf("voici le buffer %s \n",buffer);
 		ssize_t inputOfBuffer=read(STDOUT_FILENO,buffer,SIZE_OF_BUFFER);
 		//Add a \0 at the end of the buffer to told him that it's the end
 		buffer[strlen(buffer)-1]='\0';
@@ -111,13 +116,13 @@ int main() {
 
 		int isExit=IsExit(inputOfBuffer,buffer);
 		if(isExit==0){
-			const char *answer=DEF"See you next time ;)\n";
+			const char *answer=SPACE GOODBYE;
 			int sizeAnswer=strlen(answer);
 		
 			PrintPrompt(answer,sizeAnswer);
 			exit(EXIT_SUCCESS);
 		}else if (isExit==1){
-			const char *answer="See you next time ;)\n";
+			const char *answer=GOODBYE;
 			int sizeAnswer=strlen(answer);
 		
 			PrintPrompt(answer,sizeAnswer);
@@ -125,22 +130,20 @@ int main() {
 		}
 		//Question 3 finished
 		
-		clock_gettime(CLOCK_MONOTONIC, &start); //Beginning of the clock
+		clock_gettime(CLOCK_MONOTONIC, &start); //Beginning of the clock just before the beginning of the execution
 		
-		//Beginning of Question 2
+		//Beginning of Question 2 with the modification of 6
 		
 		int status=ExecuteCommand(buffer);
 		
-		//Question 2 finished
+		//Question 2 & 6 finished
 		
-		clock_gettime(CLOCK_MONOTONIC, &end); //End of the clock
+		clock_gettime(CLOCK_MONOTONIC, &end); //End of the clock just after the end of the execution
 		
-		printf("Start: %ld sec, %ld nsec\n", start.tv_sec, start.tv_nsec);
-        printf("End: %ld sec, %ld nsec\n", end.tv_sec, end.tv_nsec);
-        
-		time_t duration =(&end.tv_nsec - &start.tv_nsec)/1000000+(&end.tv_sec - &start.tv_sec)*1000;
-		printf("duration %ld ms\n", duration);
-		
+        //Beginning of Question 5
+		time_t duration =Duration((end.tv_sec - start.tv_sec),(end.tv_nsec - start.tv_nsec));
+		//Question 5 finished
+	
 		//Beginning of Question 4 
 		NewPrompt(status,lastStatus,duration);
         //Question 4 finished
@@ -148,7 +151,6 @@ int main() {
         //Reset of the buffer for the next user input
         memset(buffer, 0, SIZE_OF_BUFFER);
         
-        //Question 5 is not finished, it works but the duration is wrong
 		
 	}
 }
