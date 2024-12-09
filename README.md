@@ -37,7 +37,7 @@ This repository contains the code, documentation, and report for the project, co
 ---
 
 ## Features
-### Completed Features:
+
 1. **Welcome Message**: Displays a friendly introduction to the micro shell:
      ```
      Hello!
@@ -80,7 +80,7 @@ The current implementation is located in `enseash.c`.
   - Exit Command Handling: The shell checks if the user types exit and displays a message before terminating.
   - Graceful Exit: The shell also exits gracefully when <Ctrl+D> is pressed, just as with the exit command.
 - **Exit Code and Signal Display**:
-The prompt dynamically updates to include [exit:<code>] or [sign:<signal>]. This helps users debug commands and understand their outcomes.
+The prompt dynamically updates and helps users debug commands and understand their outcomes.
 - **Command Execution Time Measurement**:
 Captures the start and end time of command execution and calculates and displays execution time in milliseconds in the prompt. This provides users with insights into command performance.
 - **Execution of Complex Commands (with Arguments)**:
