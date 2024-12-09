@@ -59,16 +59,11 @@ This repository contains the code, documentation, and report for the project, co
 
 5. **Exit Code and Signal Display**:
 The shell displays the return code or signal from the previous command in the prompt.
-```bash
-enseash % ls
-file1.txt file2.txt
-enseash [exit:0] % invalid_command
-bash: invalid_command: command not found
-enseash [exit:127] % kill -9 $$
-Terminated
-enseash [sign:9] %
-```
 This feature helps the user understand the outcome of the last executed command, whether it succeeded, failed, or was terminated by a signal.
+
+6. **Command Execution Time Measurement**: The shell measures and displays the execution time of commands.
+
+7. **Execution of Complex Commands (with arguments)**: This feature enables the microshell to handle complex commands that include arguments. 
 
 ---
 
@@ -76,19 +71,25 @@ This feature helps the user understand the outcome of the last executed command,
 The current implementation is located in `enseash.c`. 
 
 ### Functionality:
-- **Introduction and Prompt**: Displays a welcome message and continuously prompts for user input.
+- **Introduction and Prompt**:
+  Displays a welcome message and continuously prompts for user input.
 - **Command Execution**:
   - Simple commands such as `fortune` and `date` are executed.
   - The shell returns the prompt after execution, following the REPL (Read-Eval-Print-Loop) pattern.
 - **Shell Output**:
   - Exit Command Handling: The shell checks if the user types exit and displays a message before terminating.
   - Graceful Exit: The shell also exits gracefully when <Ctrl+D> is pressed, just as with the exit command.
+- **Exit Code and Signal Display**:
+The prompt dynamically updates to include [exit:<code>] or [sign:<signal>]. This helps users debug commands and understand their outcomes.
+- **Command Execution Time Measurement**:
+Captures the start and end time of command execution and calculates and displays execution time in milliseconds in the prompt. This provides users with insights into command performance.
+- **Execution of Complex Commands (with Arguments)**:
+Parses the user input to extract the command and its arguments. This gives support to commands with multiple arguments, enhancing the shell’s usability.
 
 ### Example Commands:
 ```bash
 Enseash> fortune
 Today is what happened to yesterday.
-```
-
 Enseash> date
 Mon Dec 2 11:09:22 GMT+1 2024
+```
