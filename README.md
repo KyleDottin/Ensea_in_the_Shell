@@ -14,6 +14,17 @@ A microshell is a lightweight command-line interpreter that allows users to inte
 
 This repository contains the code, documentation, and report for the project, completed by Kyle DOTTIN and Reem KHATER. 
 
+### How to Run
+1. Clone the repository.
+2. Compile the code:
+   ```
+   gcc enseash.c -o enseash
+   ```
+3. Run the microshell:
+   ```
+   ./enseash
+   ```
+   
 ---
 
 ## Objectives
