@@ -93,8 +93,8 @@ If a redirection operator is found, the shell adjusts the file descriptors using
 
 ### Example Commands:
 ```bash
-Enseash> fortune
-Today is what happened to yesterday.
+Enseash> exit
+See you next time ;)
 
 Enseash> date
 Mon Dec 2 11:09:22 GMT+1 2024
