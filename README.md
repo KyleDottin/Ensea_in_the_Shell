@@ -76,7 +76,7 @@ The current implementation is located in `enseash.c`.
 - **Introduction and Prompt**:
   Displays a welcome message and continuously prompts for user input.
 - **Command Execution**:
-  - Simple commands such as `fortune` and `date` are executed. 
+  - Simple commands such as `fortune` and `date` are executed.  
   - The shell returns the prompt after execution, following the REPL (Read-Eval-Print-Loop) pattern.
 - **Shell Output**:
   - Exit Command Handling: The shell checks if the user types exit and displays a message before terminating.
