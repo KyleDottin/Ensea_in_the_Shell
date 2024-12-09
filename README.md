@@ -99,8 +99,4 @@ See you next time ;)
 Enseash> date
 Mon Dec 2 11:09:22 GMT+1 2024
 ```
----
 
-## Screenshots 
-
-![Screenshot of the welcome message displayed at the opening of the shell](./screenshot.png)
