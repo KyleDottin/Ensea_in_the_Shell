@@ -42,6 +42,7 @@ This repository contains the code, documentation, and report for the project, co
      ```
      Hello!
      Welcome to the Ensea micro shell. If you wish to quit, type 'exit'.
+     Enseash>
      ```
      
 2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
@@ -93,10 +94,9 @@ If a redirection operator is found, the shell adjusts the file descriptors using
 
 ### Example Commands:
 ```bash
-Enseash> exit
-See you next time ;)
-
 Enseash> date
 Mon Dec 2 11:09:22 GMT+1 2024
+Enseash [exit:0]|2ms> exit
+See you next time ;)
 ```
 
