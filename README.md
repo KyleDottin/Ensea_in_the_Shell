@@ -2,17 +2,14 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [What is Microshell?](#what-is-microshell)
 - [Objectives](#objectives)
 - [Features](#features)
 - [Code Overview](#code-overview)
-- [Example Commands](#example-commands)
-- [Screenshots](#screenshots)
 
 ## Introduction
 **Ensea in the Shell** is a shell project developed as part of the 2nd-year Computer Science Major Synthesys Practical Work at ENSEA. The purpose of the project is to implement a tiny shell capable of executing commands and displaying information such as execution time and exit codes.
 
-### What is Microshell?
+### What is a Microshell?
 A microshell is a lightweight command-line interpreter that allows users to interact with the operating system by entering commands. Unlike a full-fledged shell, a microshell provides only basic functionality, focusing on simplicity and core features. It serves as an excellent educational project to learn about system calls, process management, and input/output handling.
 
 This repository contains the code, documentation, and report for the project, completed by Kyle DOTTIN and Reem KHATER. 
