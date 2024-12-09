@@ -48,25 +48,21 @@ This repository contains the code, documentation, and report for the project, co
 2. **Prompt Display**: Shows the prompt `Enseash>` for user input.
    
 3. **Command execution**:
-   - The shell supports simple command execution without arguments.
+   - The shell supports commands even with arguments.
    - Implements a REPL loop to:
      - Read the user input.
-     - Execute the command (e.g., `fortune`, `date`).
+     - Execute the command (e.g., `hostname -i`, `date`).
      - Display the result and return to the prompt.
     
 4. **Shell output**:
    - Exit Command: The shell handles the exit command and terminates the program with a friendly farewell message.
-   - Ctrl+D Support: The shell properly exits when the user presses <Ctrl+D>, which sends an EOF (End of File) signal.
+   - Ctrl+D Support: The shell properly exits when the user presses <Ctrl+D>.
 
 5. **Exit Code and Signal Display**:
 The shell displays the return code or signal from the previous command in the prompt.
 This feature helps the user understand the outcome of the last executed command, whether it succeeded, failed, or was terminated by a signal.
 
-6. **Command Execution Time Measurement**: The shell measures and displays the execution time of commands.
-
-7. **Execution of Complex Commands (with arguments)**: This feature enables the microshell to handle complex commands that include arguments. 
-
-8. **Management of Redirections**: The shell supports redirection for both standard input (stdin) and standard output (stdout).
+6. **Command Execution Time Measurement**: The shell measures and displays the execution time of commands. 
 
 ---
 
@@ -77,7 +73,7 @@ The current implementation is located in `enseash.c`.
 - **Introduction and Prompt**:
   Displays a welcome message and continuously prompts for user input.
 - **Command Execution**:
-  - Simple commands such as `fortune` and `date` are executed.  
+  - Complex commands such as `hostname -i` or `date` are executed.  
   - The shell returns the prompt after execution, following the REPL (Read-Eval-Print-Loop) pattern.
 - **Shell Output**:
   - Exit Command Handling: The shell checks if the user types exit and displays a message before terminating.
@@ -86,11 +82,6 @@ The current implementation is located in `enseash.c`.
 The prompt dynamically updates and helps users debug commands and understand their outcomes.
 - **Command Execution Time Measurement**:
 Captures the start and end time of command execution and calculates and displays execution time in milliseconds in the prompt. This provides users with insights into command performance.
-- **Execution of Complex Commands (with Arguments)**:
-Parses the user input to extract the command and its arguments. This gives support to commands with multiple arguments, enhancing the shell’s usability.
-- **Redirection Handling**:
-The shell identifies redirection operators (<, >) in the user input and modifies the command execution accordingly.
-If a redirection operator is found, the shell adjusts the file descriptors using dup2() to either read from or write to the specified file.
 
 ### Example Commands:
 ```bash
