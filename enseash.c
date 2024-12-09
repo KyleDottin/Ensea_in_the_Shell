@@ -12,7 +12,7 @@
 
 
 void PrintPrompt(const char *prompt,int size){
-	write(STDOUT_FILENO,prompt,size);
+	write(STDOUT_FILENO,prompt,size); //Write in the shell the right prompt
 	}
 	
 int ExecuteCommand(char *buffer) {
@@ -67,13 +67,13 @@ int IsExit(ssize_t inputOfBuffer, char *buffer){
 void NewPrompt(int status, int lastStatus, long duration){
 	char prompt[SIZE_OF_BUFFER];
 	
-	if (WIFEXITED(status)) {
+	if (WIFEXITED(status)) { //Look if the command return a signal or an exit after its execution
 		lastStatus = WEXITSTATUS(status);
         snprintf(prompt, SIZE_OF_BUFFER, "Enseash [exit:%d|%ldms]>", lastStatus,duration);
     } else if (WIFSIGNALED(status)) {
 		int signal = WTERMSIG(status);
         snprintf(prompt, SIZE_OF_BUFFER, "Enseash [sign:%d|%ldms]>", signal,duration);
-    } else {
+    } else { //doesn't print neither the state nor the duration if entry is pressed
          snprintf(prompt, SIZE_OF_BUFFER, "Enseash>");
      }
      PrintPrompt(prompt,strlen(prompt)); 
@@ -81,7 +81,7 @@ void NewPrompt(int status, int lastStatus, long duration){
 }
 
 long Duration(long second, long nanosecond){
-	return second*1000+nanosecond/1000000;
+	return second*1000+nanosecond/1000000; //Convert nanosecond and seconds into milliseconds
 	
 	}
 
@@ -104,7 +104,8 @@ int main() {
 		struct timespec start;
 		struct timespec end;
 		
-		int lastStatus=0; //Initialization for Question 4		
+		int lastStatus=0; //Initialization for Question 4	
+			
 		//Put in a buffer the input of the user
 		ssize_t inputOfBuffer=read(STDOUT_FILENO,buffer,SIZE_OF_BUFFER);
 		//Add a \0 at the end of the buffer to told him that it's the end
