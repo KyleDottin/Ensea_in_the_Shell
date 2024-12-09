@@ -1,5 +1,14 @@
 # Ensea in the Shell
 
+## Table of Contents
+- [Introduction](#introduction)
+- [What is Microshell?](#what-is-microshell)
+- [Objectives](#objectives)
+- [Features](#features)
+- [Code Overview](#code-overview)
+- [Example Commands](#example-commands)
+- [Screenshots](#screenshots)
+
 ## Introduction
 **Ensea in the Shell** is a shell project developed as part of the 2nd-year Computer Science Major Synthesys Practical Work at ENSEA. The purpose of the project is to implement a tiny shell capable of executing commands and displaying information such as execution time and exit codes.
 
@@ -40,6 +49,19 @@ This repository contains the code, documentation, and report for the project, co
    - Exit Command: The shell handles the exit command and terminates the program with a friendly farewell message.
    - Ctrl+D Support: The shell properly exits when the user presses <Ctrl+D>, which sends an EOF (End of File) signal.
 
+5. **Exit Code and Signal Display**:
+The shell displays the return code or signal from the previous command in the prompt.
+```bash
+enseash % ls
+file1.txt file2.txt
+enseash [exit:0] % invalid_command
+bash: invalid_command: command not found
+enseash [exit:127] % kill -9 $$
+Terminated
+enseash [sign:9] %
+```
+This feature helps the user understand the outcome of the last executed command, whether it succeeded, failed, or was terminated by a signal.
+
 ---
 
 ## Code Overview
@@ -58,6 +80,7 @@ The current implementation is located in `enseash.c`.
 ```bash
 Enseash> fortune
 Today is what happened to yesterday.
+```
 
 Enseash> date
 Mon Dec 2 11:09:22 GMT+1 2024
