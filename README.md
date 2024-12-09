@@ -90,6 +90,7 @@ Parses the user input to extract the command and its arguments. This gives suppo
 ```bash
 Enseash> fortune
 Today is what happened to yesterday.
+
 Enseash> date
 Mon Dec 2 11:09:22 GMT+1 2024
 ```
