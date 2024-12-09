@@ -65,6 +65,8 @@ This feature helps the user understand the outcome of the last executed command,
 
 7. **Execution of Complex Commands (with arguments)**: This feature enables the microshell to handle complex commands that include arguments. 
 
+8. **Management of Redirections**: The shell supports redirection for both standard input (stdin) and standard output (stdout).
+
 ---
 
 ## Code Overview
@@ -85,6 +87,9 @@ The prompt dynamically updates and helps users debug commands and understand the
 Captures the start and end time of command execution and calculates and displays execution time in milliseconds in the prompt. This provides users with insights into command performance.
 - **Execution of Complex Commands (with Arguments)**:
 Parses the user input to extract the command and its arguments. This gives support to commands with multiple arguments, enhancing the shell’s usability.
+- **Redirection Handling**:
+The shell identifies redirection operators (<, >) in the user input and modifies the command execution accordingly.
+If a redirection operator is found, the shell adjusts the file descriptors using dup2() to either read from or write to the specified file.
 
 ### Example Commands:
 ```bash
